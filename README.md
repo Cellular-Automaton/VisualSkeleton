@@ -8,7 +8,7 @@ This repository is a zero‑configuration template to build visuals for the CAMI
 
 ## What You Get
 
-- React 19 + Vite 7: fast dev server and optimized builds.
+- React 18 + Vite 7: fast dev server and optimized builds.
 - Tailwind v4 via `@tailwindcss/vite`: utility‑first styling, no config.
 - MUI ready: accessible UI controls out of the box.
 - PIXI.js stack: ready to render large grids efficiently if you choose to.
