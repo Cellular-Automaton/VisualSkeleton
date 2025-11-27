@@ -1,3 +1,4 @@
+import React from 'react';
 import { useRef, useEffect, useState } from 'react';
 import { Application, Container, Graphics } from 'pixi.js';
 import { Viewport } from 'pixi-viewport';
@@ -124,7 +125,7 @@ const PixiRenderer = ({ cells, rows, cols, onCellClick }) => {
 
         newGraphics.on('pointerdown', () => {
             dragInfoRef.current.active = true;
-            if (onCellClick) {
+            if (onCellClick && !dragInfoRef.current.alreadyDoneCells.has(cell.id)) {
                 onCellClick(cell.id);
                 dragInfoRef.current.alreadyDoneCells.add(cell.id);
                 viewportRef.current.plugins.pause("drag");
