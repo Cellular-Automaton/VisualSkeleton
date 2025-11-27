@@ -1,3 +1,4 @@
+import React from 'react';
 import { useEffect, useState, useRef } from 'react';
 import { useGrid } from './hooks/useGrid';
 import PixiRenderer from './components/PixiRenderer';
