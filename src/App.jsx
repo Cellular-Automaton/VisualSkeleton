@@ -93,9 +93,6 @@ function App() {
     }, [createGrid]);
 
     useEffect(() => {
-        if (parameters.width <= 0 || parameters.height <= 0 || !parameters.width || !parameters.height)
-            return;
-
         createGrid(parameters.width, parameters.height);
     }, [parameters.width, parameters.height]);
     
