@@ -184,8 +184,6 @@ function App() {
                                             val = "100";
                                         if (Number(val) < 1)
                                             val = "1";
-                                        if (val.length > 3)
-                                            val = val.slice(0, 3);
                                         setParameters({ ...parameters, [key]: val })}
                                     }
                                     className='mb-2 text-white border-white'
