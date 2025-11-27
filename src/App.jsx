@@ -1,5 +1,5 @@
 import React from 'react';
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState } from 'react';
 import { useGrid } from './hooks/useGrid';
 import PixiRenderer from './components/PixiRenderer';
 import { Button, ButtonGroup, Slider, TextField } from '@mui/material';
@@ -9,12 +9,10 @@ function App() {
         cells, 
         rows, 
         cols, 
-        stats,
         frames,
 
         createGrid, 
-        toggleCell, 
-        getAllStates,
+        toggleCell,
         clearGrid,
         getCellStates,
         updateCellStates,
@@ -86,7 +84,7 @@ function App() {
         setFrames([pendingImportTable]);
         setCurrentFrame(1);
         setPendingImportTable([]);
-    }, [pendingImportTable, cells.length])
+    }, [pendingImportTable, cells.length, setFrames])
 
     useEffect(() => {
         createGrid(parameters.width, parameters.height);

@@ -1,6 +1,6 @@
 import React from "react";
 import { renderHook, act, waitFor } from "@testing-library/react";
-import { describe, expect } from "vitest";
+import { describe, expect, it } from "vitest";
 import { useGrid } from "../src/hooks/useGrid";
 
 describe("useGrid Hook Initialization", () => {

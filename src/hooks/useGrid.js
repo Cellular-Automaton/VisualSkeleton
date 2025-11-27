@@ -25,7 +25,7 @@ export const useGrid = (defaultRows = 10, defaultCols = 10) => {
         setCells(newCells);
         setRows(newRows);
         setCols(newCols);
-    }, [rows, cols]);
+    }, []);
 
     // Clear the grid (set all cells to dead)
     const clearGrid = useCallback(() => {

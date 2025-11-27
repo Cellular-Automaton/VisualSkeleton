@@ -97,7 +97,7 @@ const PixiRenderer = ({ cells, rows, cols, onCellClick }) => {
         });
         viewport.moveCenter((cols * 110) / 2, (rows * 110) / 2);
 
-        window.addEventListener('mouseup', (e) => {
+        window.addEventListener('mouseup', () => {
             dragInfoRef.current.active = false;
             dragInfoRef.current.alreadyDoneCells.clear();
             viewportRef.current.plugins.resume("drag");

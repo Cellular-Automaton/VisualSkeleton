@@ -92,7 +92,7 @@ describe('PixiRenderer', () => {
             { id: 'cell-1-0', col: 1, row: 0, state: 0 },
             { id: 'cell-1-1', col: 1, row: 1, state: 1 },
         ]
-        const renderer = render(<PixiRenderer cells={cellsInitial} rows={2} cols={2} onCellClick={vi.fn()} />);
+        render(<PixiRenderer cells={cellsInitial} rows={2} cols={2} onCellClick={vi.fn()} />);
 
         await act(async () => {
             await Promise.resolve();
@@ -108,7 +108,7 @@ describe('PixiRenderer', () => {
                 cellsInitial.push({ id: `cell-${r}-${c}`, col: c, row: r, state: 0 });
             }
         }
-        const renderer = render(<PixiRenderer cells={cellsInitial} rows={10} cols={10} onCellClick={vi.fn()} />);
+        render(<PixiRenderer cells={cellsInitial} rows={10} cols={10} onCellClick={vi.fn()} />);
 
         await act(async () => {
             await Promise.resolve();
@@ -123,7 +123,7 @@ describe('PixiRenderer', () => {
             { id: 'cell-0-1', col: 0, row: 1, state: 1 },
         ]
         const mockOnCellClick = vi.fn();
-        const renderer = render(<PixiRenderer cells={cellsInitial} rows={1} cols={2} onCellClick={mockOnCellClick} />);
+        render(<PixiRenderer cells={cellsInitial} rows={1} cols={2} onCellClick={mockOnCellClick} />);
 
         await act(async () => {
             await Promise.resolve();
@@ -145,7 +145,7 @@ describe('PixiRenderer', () => {
             { id: 'cell-1-1', col: 1, row: 1, state: 1 },
         ]
         const mockOnCellClick = vi.fn();
-        const renderer = render(<PixiRenderer cells={cellsInitial} rows={2} cols={2} onCellClick={mockOnCellClick} />);
+        render(<PixiRenderer cells={cellsInitial} rows={2} cols={2} onCellClick={mockOnCellClick} />);
         await act(async () => {
             await Promise.resolve();
         });
@@ -172,7 +172,7 @@ describe('PixiRenderer', () => {
             { id: 'cell-0-1', col: 0, row: 1, state: 1 },
         ]
         const mockOnCellClick = vi.fn();
-        const renderer = render(<PixiRenderer cells={cellsInitial} rows={1} cols={2} onCellClick={mockOnCellClick} />);
+        render(<PixiRenderer cells={cellsInitial} rows={1} cols={2} onCellClick={mockOnCellClick} />);
         await act(async () => {
             await Promise.resolve();
         });
@@ -191,7 +191,7 @@ describe('PixiRenderer', () => {
         const cellsInitial = [
             { id: 'cell-0-0', col: 0, row: 0, state: 0 },
         ]
-        const renderer = render(<PixiRenderer cells={cellsInitial} rows={1} cols={1} onCellClick={vi.fn()} />);
+        render(<PixiRenderer cells={cellsInitial} rows={1} cols={1} onCellClick={vi.fn()} />);
         await act(async () => {
             await Promise.resolve();
         });
@@ -212,7 +212,7 @@ describe('PixiRenderer', () => {
             { id: 'cell-0-0', col: 0, row: 0, state: 0 },
         ]
 
-        const renderer = render(<PixiRenderer cells={cellsInitial} rows={1} cols={1} onCellClick={vi.fn()} />);
+        render(<PixiRenderer cells={cellsInitial} rows={1} cols={1} onCellClick={vi.fn()} />);
         await act(async () => {
             await Promise.resolve();
         });
@@ -229,7 +229,7 @@ describe('PixiRenderer', () => {
         const cellsInitial = [
             { id: 'cell-0-0', col: 0, row: 0, state: 0 },
         ]
-        const renderer = render(<PixiRenderer cells={cellsInitial} rows={1} cols={1} onCellClick={vi.fn()} />);
+        render(<PixiRenderer cells={cellsInitial} rows={1} cols={1} onCellClick={vi.fn()} />);
         await act(async () => {
             await Promise.resolve();
         });
@@ -248,7 +248,7 @@ describe('PixiRenderer', () => {
         const cellsInitial = [
             { id: 'cell-0-0', col: 0, row: 0, state: 0 },
         ]
-        const renderer = render(<PixiRenderer cells={cellsInitial} rows={1} cols={1} onCellClick={vi.fn()} />);
+        render(<PixiRenderer cells={cellsInitial} rows={1} cols={1} onCellClick={vi.fn()} />);
         await act(async () => {
             await Promise.resolve();
         });

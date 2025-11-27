@@ -2,7 +2,6 @@ import React from 'react';
 import { render, screen, fireEvent, waitFor, act } from '@testing-library/react';
 import { vi, describe, it, beforeEach, expect } from 'vitest';
 import App from '../src/App.jsx';
-import { data } from 'happy-dom/lib/PropertySymbol.js';
 
 const mockUpdateCellStates = vi.fn();
 const mockGetCellStates = vi.fn(() => [
