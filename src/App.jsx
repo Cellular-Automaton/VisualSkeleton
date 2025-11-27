@@ -48,6 +48,15 @@ function App() {
                 console.log(data);
 
                 console.log("Updating parameters with:", newParameters);
+                setParameters(prev => {
+                    prev = { };
+                    Object.entries(newParameters).forEach(([key, value]) => {
+                        // Erase all previous values and set new ones
+                        console.log(`Setting parameter ${key} to ${value} (was ${prev[key]})`);
+                        prev[key] = value;
+                    });
+                    return { ...prev };
+                });
             }
 
             if (message.action === "IMPORTED_DATA") {
@@ -163,6 +172,7 @@ function App() {
                             Object.entries(parameters).map(([key, value]) => (
                                 <TextField
                                     key={key}
+                                    data-testid={`param-${key}`}
                                     disabled={isRunning}
                                     label={key.charAt(0).toUpperCase() + key.slice(1)}
                                     value={value}
