@@ -1,5 +1,7 @@
 # VisualSkeleton — Plug‑and‑Code Template for CAMI Visuals
 
+[![codecov](https://codecov.io/gh/Cellular-Automaton/VisualSkeleton/graph/badge.svg?token=SFODF2QFVM)](https://codecov.io/gh/Cellular-Automaton/VisualSkeleton)
+
 This repository is a zero‑configuration template to build visuals for the CAMI (Cellular Automata) host application. Everything is already wired: Vite, React, Tailwind, linting, and the messaging bridge with the host app. You can start coding your visualization logic immediately — no setup overhead.
 
 — TL;DR: clone, `npm i`, `npm run dev`, then implement your renderer in `src`.
