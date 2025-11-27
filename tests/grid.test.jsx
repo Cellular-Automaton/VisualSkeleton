@@ -455,4 +455,40 @@ describe("useGrid Hook Update Cell States", () => {
             });
         });
     });
+
+    describe("useGrid Hook Statistics", () => {
+        it("Check statistics after initializing a 10x10 grid", async () => {
+            const { result } = renderHook(() => useGrid());
+            act(() => {
+                result.current.createGrid(10, 10);
+            });
+
+            await waitFor(() => {
+                expect(result.current.stats.totalCells).toBe(100);
+                expect(result.current.stats.aliveCells).toBe(0);
+            });
+        });
+
+        it("Check statistics after toggling cells in a 10x10 grid", async () => {
+            const { result } = renderHook(() => useGrid());
+            act(() => {
+                result.current.createGrid(10, 10);
+            });
+
+            await waitFor(() => {
+                expect(result.current.stats.totalCells).toBe(100);
+                expect(result.current.stats.aliveCells).toBe(0);
+            });
+
+            for (let i = 0; i < 3; ++i) {
+                act(() => {
+                    result.current.toggleCell(`${i}-${i}`);
+                });
+            }
+
+            await waitFor(() => {
+                expect(result.current.stats.aliveCells).toBe(3);
+            });
+        });
+    });
 });
