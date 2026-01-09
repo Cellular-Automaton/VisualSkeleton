@@ -1,5 +1,4 @@
-import React from 'react';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { useGrid } from './hooks/useGrid';
 import PixiRenderer from './components/PixiRenderer';
 import { Button, ButtonGroup, Slider, TextField } from '@mui/material';
@@ -9,10 +8,12 @@ function App() {
         cells, 
         rows, 
         cols, 
+        stats,
         frames,
 
         createGrid, 
-        toggleCell,
+        toggleCell, 
+        getAllStates,
         clearGrid,
         getCellStates,
         updateCellStates,
@@ -46,15 +47,6 @@ function App() {
                 console.log(data);
 
                 console.log("Updating parameters with:", newParameters);
-                setParameters(prev => {
-                    prev = { };
-                    Object.entries(newParameters).forEach(([key, value]) => {
-                        // Erase all previous values and set new ones
-                        console.log(`Setting parameter ${key} to ${value} (was ${prev[key]})`);
-                        prev[key] = value;
-                    });
-                    return { ...prev };
-                });
             }
 
             if (message.action === "IMPORTED_DATA") {
@@ -84,13 +76,16 @@ function App() {
         setFrames([pendingImportTable]);
         setCurrentFrame(1);
         setPendingImportTable([]);
-    }, [pendingImportTable, cells.length, setFrames])
+    }, [pendingImportTable, cells.length])
 
     useEffect(() => {
         createGrid(parameters.width, parameters.height);
     }, [createGrid]);
 
     useEffect(() => {
+        if (parameters.width <= 0 || parameters.height <= 0 || !parameters.width || !parameters.height)
+            return;
+
         createGrid(parameters.width, parameters.height);
     }, [parameters.width, parameters.height]);
     
@@ -167,7 +162,6 @@ function App() {
                             Object.entries(parameters).map(([key, value]) => (
                                 <TextField
                                     key={key}
-                                    data-testid={`param-${key}`}
                                     disabled={isRunning}
                                     label={key.charAt(0).toUpperCase() + key.slice(1)}
                                     value={value}
@@ -179,6 +173,8 @@ function App() {
                                             val = "100";
                                         if (Number(val) < 1)
                                             val = "1";
+                                        if (val.length > 3)
+                                            val = val.slice(0, 3);
                                         setParameters({ ...parameters, [key]: val })}
                                     }
                                     className='mb-2 text-white border-white'

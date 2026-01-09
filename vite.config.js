@@ -10,6 +10,9 @@ export default defineConfig({
     tailwindcss(),
     cssInjectedByJsPlugin()
   ],
+  define: {
+    'process.env.NODE_ENV': JSON.stringify('production')
+  },
   build: {
     target: 'esnext',
     outDir: 'dist',
@@ -26,6 +29,7 @@ export default defineConfig({
       },
       external: [], // Ne pas externaliser le CSS
     },
-    cssCodeSplit: false
+    cssCodeSplit: false,
+    minify: 'esbuild'
   },
 });
